@@ -5,8 +5,7 @@ int Aktion::anrzaehler = 0;
 
 Aktion::Aktion()
 {
-	anrzaehler++;
-	anr = anrzaehler;
+	anr = anrzaehler++;
 	plaetze = 0;
 	datum = "";
 	beginn = "";

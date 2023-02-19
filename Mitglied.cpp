@@ -14,11 +14,11 @@ Mitglied::Mitglied(string name, string vorname)
 {
 	this->name = name;
 	this->vorname = vorname;
-	benutzername = "";
-	passwort = "";
+	benutzername = name;
+	passwort = name;
 }
 
-bool Mitglied::anmeldenFuerAktion(Aktion* a) //muss immer mit anmelden funktion von Aktion ausgeführt werden.
+bool Mitglied::anmeldenFuerAktion(Aktion* a) //muss immer mit anmelden Funktion von Aktion ausgeführt werden.
 {
 	if (meineTermine.contains(a)) //falls schon drinne
 	{
@@ -57,13 +57,14 @@ bool Mitglied::abmeldenVonAktion(Aktion* a)
 
 double Mitglied::berechneZahlung(int jahr, int monat)
 {
+	cout << "Berechnung Zahlung eines Mitgliedes" << endl;
 	double zahlung = mtlBeitrag;
 	for (int i = 0;i < meineTermine.size();i++)
 	{
 		int m = 0;
 		int	j = 0;
 		string datum = meineTermine.get(i)->getDatum();
-		m = stoi(datum.substr(3, datum.find("."))); //datum hat immer 2 stellen im monat&tag .split() funktion von String simuliert
+		m = stoi(datum.substr(3, datum.find("."))); //Datum hat immer 2 Stellen im monat&tag .split() Funktion von String simuliert
 		j = stoi(datum.substr(6));
 		if (m == monat && j == jahr)
 		{

@@ -4,21 +4,37 @@
 #include "Mitglied.h"
 #include "Organisator.h"
 #include "FTServer.h"
-
+#include "FTClient.h"
 using namespace std;
 
 int main()
 {
+	cout << "(1) Server -- () Client" << endl;
+	int wahl = 0;
+	cin >> wahl;
+	if (wahl == 1) {
+		FTServer fts(54321);
+		fts.starten();
+
+	}
+	else 
+	{
+		FTClient ftc("127.0.0.1", 54321);
+		ftc.login("Peter", "Peter");
+	}
+
 	Organisator* peterOrg = new Organisator("Peter", "Mueller");
 	Aktion* aktFuss = new Aktion("02.03.2022", "15:00","Fussball",50,2,peterOrg);
-	Aktion* aktKino = new Aktion("02.03.2023", "20:00", "Kino", 20, 3, peterOrg);
+	Aktion* aktKino = new Aktion("02.03.2022", "20:00", "Kino", 20, 3, peterOrg);
 	Mitglied* antonM = new Mitglied("Anton", "Mitglied-1");
 	Mitglied* beaM = new Mitglied("Bea", "Mitglied-2");
 	Mitglied* cesarM = new Mitglied("Cesar", "Mitgleid-3");
 
 	cout << "Test: Zuviele Anmeldungen" << endl;
-	cout << "Anmeldung Anton: " << aktFuss->anmelden(antonM) << endl;
-	cout << "Anmeldung Bea: " << aktFuss->anmelden(beaM) << endl;
+	cout << "MethodenTest - istAusgebucht() " << aktFuss->istAusgebucht() << endl;
+	cout << "Anmeldung Anton by Aktion: " << aktFuss->anmelden(antonM) << " Anmeldung Anton by Mitglieder: " << antonM->anmeldenFuerAktion(aktFuss) << endl;
+	cout << "MethodenTest - istAusgebucht() " << aktFuss->istAusgebucht() << endl;
+	cout << "Anmeldung Bea: " << aktFuss->anmelden(beaM) << " FEHLER! DA BEA GLAUBT, DASS SIE ANGEMELDET IST Anmeldung Bea by Mitglieder: " << beaM->anmeldenFuerAktion(aktFuss) << endl;
 	for (int i = 0; i < aktFuss->getTeilnehmer().size(); i++) { cout << "Teilnehmer der Aktion: " << aktFuss->getTeilnehmer().get(i)->getName() << endl; }
 
 	cout << "\nTest: Warteschleife" << endl;
@@ -27,30 +43,11 @@ int main()
 	for (int i = 0; i < aktFuss->getWarteliste().size(); i++) { cout << "Warteliste der Aktion: " << aktFuss->getWarteliste().get(i)->getName() << endl; }
 	aktFuss->eintragenInWarteliste(beaM);
 
-
-	//cout << "Klasse Aktion Test: \n\n";
-
-	//cout <<"Uwe: "<<akt->anmelden(mit)<<"	"<<mit->anmeldenFuerAktion(akt)<<endl;
-	//cout <<"Thorge: "<<akt->anmelden(mit1)<<"	"<<mit1->anmeldenFuerAktion(akt) <<endl;
-	//cout <<"Joscha: "<<akt->anmelden(mit2)<<"	"<<mit2->anmeldenFuerAktion(akt)<<endl;
-	//cout << "Ausgebucht: " << akt->istAusgebucht()<< endl;
-	//cout << "Teilnehmer: " << akt->istTeilnehmer(mit1)<<endl;
-	//akt->eintragenInWarteliste(mit2);
-	//cout << "Warteliste: " << akt->istAufWarteliste(mit2) << endl;
-	//akt->abmelden(mit);
-	//cout << "Abmelden funktioniert: " << akt->istTeilnehmer(mit2) << endl;
-	//Aktion* akt1 = new Aktion("02.03.2022", "16:00", "Basketball", 25, 2, org);
-	//cout << "\nKlasse Mitglied Test: \n\n";
-	//
-	//mit1->anmeldenFuerAktion(akt1)<<akt1->anmelden(mit1);
-	//cout << "Angemeldet Thorge: " << akt1->istTeilnehmer(mit1)<<endl;
-	//cout <<"Zahlung: "<<mit1->berechneZahlung(2022, 3)<<" Richtig, weil 2 Aktionen stattfinden 50+25+10 und mit1 in diesen beiden angemeldet wurde"<<endl;
-	//mit1->eintragenInWarteliste(akt1);
-	//cout << "Eintragen in Warteliste Thorge: " << mit1->getmeineWarteliste().contains(akt1)<<endl;
-	//cout << "Abmelden Thorge: " << mit1->abmeldenVonAktion(akt)<<endl;
-	//cout << "Zahlung nach Abmeldung: " << mit1->berechneZahlung(2022, 3);
-	//cout << "\nKlasse Organisator Test: \n\n";
-	//cout <<"Zahlung: "<< org->berechneZahlung(2022,3)<<"	bedeutet er macht 70 Euro plus mit seinen Aktionen. ";
+	cout << "\nTest: Zahlungen" << endl;
+	cout << "10 Mitglied, da keine Teilnahme an einer Aktion. Name: " << cesarM->getName() << " Zahlung: " << cesarM->berechneZahlung(2022, 03) << endl;
+	cout << "10 + 50, da Teilnahme an einer Aktion. Name: " << antonM->getName() << " Zahlung: " << antonM->berechneZahlung(2022, 03) << endl;
+	cout << "FEHLER! Bea glaubt, sie könnte teilnehmen. 10 Zahlung, da keine Teilnahme an einer Aktion. Name: " << beaM->getName() << " Zahlung: " << beaM->berechneZahlung(2022, 03) << endl;
+	cout << "RICHTIG, da 10 -40 Fussball - 40Kino Name: " << peterOrg->getName() << " Zahlung: " << peterOrg->berechneZahlung(2022, 03) << endl;
 
 	system("pause");
 	return 0;

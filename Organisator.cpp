@@ -34,6 +34,7 @@ void Organisator::anbietenAktion(Aktion* a)
 
 double Organisator::berechneZahlung(int jahr, int monat)
 {
+	cout << "Berechnung Zahlung eines Organisators" << endl;
 	int anz = 0;
 	for (int i = 0;i < meineAktionen.size();i++)
 	{
@@ -47,7 +48,7 @@ double Organisator::berechneZahlung(int jahr, int monat)
 			anz++;
 		}
 	}
-	return Mitglied::berechneZahlung(jahr, monat) - honorar * anz;
+	return Mitglied::berechneZahlung(jahr, monat) - honorar * anz; // in Java super.
 }
 
 Organisator::~Organisator()

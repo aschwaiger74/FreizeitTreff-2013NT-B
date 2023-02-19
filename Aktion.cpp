@@ -27,7 +27,7 @@ Aktion::Aktion(string datum, string beginn, string titel, double kosten, int pla
 	teilnehmer.add(org); // Der Organisator ist immer auch Teilnehmer seiner Aktion. 
 }
 
-bool Aktion::anmelden(Mitglied* m) //muss immer mit anmeldenFuerAktion funktion von Mitglied ausgeführt werden.
+bool Aktion::anmelden(Mitglied* m) //muss immer mit anmeldenFuerAktion Funktion von Mitglied ausgeführt werden.
 {
 	if (teilnehmer.size() < plaetze) //plaetze frei
 	{

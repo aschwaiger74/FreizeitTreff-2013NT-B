@@ -18,7 +18,7 @@ Mitglied* FTServer::findeMitglied(string benname, string pw)
 {
 	for (int i = 0; i < mitglieder.size(); i++)
 	{
-		if (mitglieder.get(i)->getbenutzername() == benname && mitglieder.get(i)->getpasswort() == pw) 
+		if (mitglieder.get(i)->getBenutzername() == benname && mitglieder.get(i)->getPasswort() == pw) 
 		{
 			return mitglieder.get(i);
 		}
@@ -30,7 +30,7 @@ Aktion* FTServer::findeAktion(int anr)
 {
 	for (int i = 0; i < aktionen.size(); i++)
 	{
-		if (aktionen.get(i)->getanr() == anr) 
+		if (aktionen.get(i)->getAnr() == anr) 
 		{
 			return aktionen.get(i);
 		}

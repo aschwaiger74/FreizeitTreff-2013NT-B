@@ -27,6 +27,11 @@ bool Organisator::abmeldenVonAktion(Aktion* a)
 	return ergebnis;
 }
 
+void Organisator::anbietenAktion(Aktion* a)
+{
+	//ToDo
+}
+
 double Organisator::berechneZahlung(int jahr, int monat)
 {
 	int anz = 0;

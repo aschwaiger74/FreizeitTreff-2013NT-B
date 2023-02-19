@@ -22,14 +22,14 @@ Aktion::Aktion(string datum, string beginn, string titel, double kosten, int pla
 	this->titel = titel;
 	this->kosten = kosten;
 	this->plaetze = plaetze;
-	veranstalter = org;
-	veranstalter->hinzufuegenAktion(this);
-	teilnehmer.add(org);
+	veranstalter = org;	// Aktion weiß, wer der Organisator ist
+	veranstalter->hinzufuegenAktion(this);  // Der Organisator hat eine Liste mit allen Aktionen.
+	teilnehmer.add(org); // Der Organisator ist immer auch Teilnehmer seiner Aktion. 
 }
 
 bool Aktion::anmelden(Mitglied* m) //muss immer mit anmeldenFuerAktion funktion von Mitglied ausgeführt werden.
 {
-	if (teilnehmer.size() <= plaetze) //plaetze frei
+	if (teilnehmer.size() < plaetze) //plaetze frei
 	{
 		if(this->istTeilnehmer(m)) //falls m schon angemeldet ist
 			{
@@ -94,22 +94,22 @@ double Aktion::getKosten()
 	return kosten;
 }
 
-int Aktion::getanr()
+int Aktion::getAnr()
 {
 	return anr;
 }
 
-List<Mitglied*> Aktion::getteilnehmer()
+List<Mitglied*> Aktion::getTeilnehmer()
 {
 	return teilnehmer;
 }
 
-List<Mitglied*> Aktion::getwarteliste()
+List<Mitglied*> Aktion::getWarteliste()
 {
 	return warteliste;
 }
 
-Organisator* Aktion::getveranstalter()
+Organisator* Aktion::getVeranstalter()
 {
 	return veranstalter;
 }

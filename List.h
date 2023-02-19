@@ -15,7 +15,7 @@ public:
 	{
 		meineListe = new list<T>;
 	}
-	~List() { delete meineListe; }
+	~List() { }//delete meineListe; 
 
 	void add(T);		// hängt das Objekt obj vom Typ T am Ende der Liste an.
 

@@ -17,6 +17,7 @@ public:
 	Organisator(string name, string vorname);
 	void hinzufuegenAktion(Aktion* a);
 	bool abmeldenVonAktion(Aktion* a);
+	void anbietenAktion(Aktion* a); // fehlt
 	double berechneZahlung(int jahr, int monat);
 	~Organisator();
 };

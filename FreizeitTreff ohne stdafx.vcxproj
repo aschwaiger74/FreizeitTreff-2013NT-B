@@ -152,7 +152,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Aktion.cpp" />
-    <ClCompile Include="FreizeitTreff.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="FTClient.cpp" />
     <ClCompile Include="FTServer.cpp" />
     <ClCompile Include="FTServerThread.cpp" />

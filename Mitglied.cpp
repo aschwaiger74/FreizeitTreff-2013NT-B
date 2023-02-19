@@ -73,27 +73,27 @@ double Mitglied::berechneZahlung(int jahr, int monat)
 	return zahlung;
 }
 
-string Mitglied::getname()
+string Mitglied::getName()
 {
 	return name;
 }
 
-string Mitglied::getbenutzername()
+string Mitglied::getBenutzername()
 {
 	return benutzername;
 }
 
-string Mitglied::getpasswort()
+string Mitglied::getPasswort()
 {
 	return passwort;
 }
 
-List<Aktion*> Mitglied::getmeineWarteliste()
+List<Aktion*> Mitglied::getMeineWarteliste()
 {
 	return meineWarteliste;
 }
 
-List<Aktion*> Mitglied::getmeineTermine()
+List<Aktion*> Mitglied::getMeineTermine()
 {
 	return meineTermine;
 }

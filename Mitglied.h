@@ -23,11 +23,11 @@ public:
 	void eintragenInWarteliste(Aktion* a);
 	bool abmeldenVonAktion(Aktion* a);
 	double berechneZahlung(int jahr, int monat);
-	string getname();
-	string getbenutzername();
-	string getpasswort();
-	List<Aktion*> getmeineWarteliste();
-	List<Aktion*> getmeineTermine();
+	string getName();
+	string getBenutzername();
+	string getPasswort();
+	List<Aktion*> getMeineWarteliste();
+	List<Aktion*> getMeineTermine();
 	~Mitglied();
 };
 

@@ -32,10 +32,10 @@ public:
 	bool istAusgebucht();
 	string getDatum();
 	double getKosten();
-	int getanr();
-	List<Mitglied*> getteilnehmer();
-	List<Mitglied*> getwarteliste();
-	Organisator* getveranstalter();
+	int getAnr();
+	List<Mitglied*> getTeilnehmer();
+	List<Mitglied*> getWarteliste();
+	Organisator* getVeranstalter();
 	~Aktion();
 };
 

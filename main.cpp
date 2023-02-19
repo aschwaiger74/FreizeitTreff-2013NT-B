@@ -19,9 +19,13 @@ int main()
 	cout << "Test: Zuviele Anmeldungen" << endl;
 	cout << "Anmeldung Anton: " << aktFuss->anmelden(antonM) << endl;
 	cout << "Anmeldung Bea: " << aktFuss->anmelden(beaM) << endl;
-	for (int i = 0; i < aktFuss->getTeilnehmer().size(); i++) { cout << "Mitglieder der Aktion: " << aktFuss->getTeilnehmer().get(i)->getName() << endl; }
+	for (int i = 0; i < aktFuss->getTeilnehmer().size(); i++) { cout << "Teilnehmer der Aktion: " << aktFuss->getTeilnehmer().get(i)->getName() << endl; }
 
-	
+	cout << "\nTest: Warteschleife" << endl;
+	aktFuss->eintragenInWarteliste(antonM);
+	aktFuss->eintragenInWarteliste(beaM);
+	for (int i = 0; i < aktFuss->getWarteliste().size(); i++) { cout << "Warteliste der Aktion: " << aktFuss->getWarteliste().get(i)->getName() << endl; }
+	aktFuss->eintragenInWarteliste(beaM);
 
 
 	//cout << "Klasse Aktion Test: \n\n";

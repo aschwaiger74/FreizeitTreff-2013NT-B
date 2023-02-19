@@ -45,11 +45,12 @@ void Aktion::eintragenInWarteliste(Mitglied* m)
 {
 	if (this->istTeilnehmer(m)) //falls m schon ein teilnehmer ist 
 	{
+		cout << m->getName() << " ist schon Teilnehmer der Aktion " << this->titel << endl;
 		return;
 	}
 	if (this->istAufWarteliste(m)) //falls m schon auf der warteliste steht 
-
 	{
+		cout << m->getName() << " ist schon auf der Warteliste der Aktion " << this->titel << endl;
 		return;
 	}
 	warteliste.add(m);

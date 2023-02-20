@@ -8,10 +8,9 @@ FTServer::FTServer(int port)
 
 void FTServer::starten()
 {
-	Socket* workSocket;
-	workSocket = serversocket->accept();
-	/*FTServerThread* go = new FTServerThread(workSocket, this);*/
-	/*go->run();*/
+	Socket* workSocket = serversocket->accept();
+	FTServerThread* ftst = new FTServerThread(workSocket, this);
+	ftst->run();
 }
 
 Mitglied* FTServer::findeMitglied(string benname, string pw)
